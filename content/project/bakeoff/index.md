@@ -1,28 +1,20 @@
 ---
-author: Eric Anderson
-categories:
-- Theme Features
-- R
-- package
-date: "2019-07-01"
+author: Thais F. Pereira
+date: "2021-07-01"
 draft: false
-excerpt: This theme has a form-to-email feature built in, thanks to the simple Formspree
-  integration. All you need to activate the form is a valid recipient email address
-  saved in the form front matter.
+excerpt: Esse relatório contém algumas análises que estão sendo desenvolvidas no escopo do meu trabalho de mestrado no departamento de Ciência Política da USP
 layout: single
 links:
 - icon: door-open
   icon_pack: fas
   name: website
-  url: https://bakeoff.netlify.com/
+  url: https://thais01fernandes.github.io/Analises-Mestrado/ffpt_brasil.html
 - icon: github
   icon_pack: fab
   name: code
-  url: https://github.com/apreshill/bakeoff
-subtitle: An R Package
-tags:
-- hugo-site
-title: Bakeoff
+  url: https://github.com/thais01fernandes/Analises-Mestrado
+
+title: Fare Free Public Transport Cities
 ---
 
 ![Formspree Logo](formspree-logo.png)

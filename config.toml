@@ -1,7 +1,7 @@
-baseURL = "/"
+baseURL = "https://thais-pereira.netlify.app/"
 theme = "hugo-apero"
-languageCode = "en"
-title = "Hugo Apéro"
+languageCode = "pt"
+title = "Thais Fernandes Pereira"
 author = "Alison Hill"
 copyright = "" # set to override the auto generated copyright using org info and now year
 googleAnalytics = ""
@@ -32,7 +32,7 @@ enableEmoji = true
   orgLocal = "Anywhere"
   description = "A modern, beautiful, and easily configurable blog theme for Hugo."
   favicon = "/img/favicon.ico"
-  logo = "/img/blogophonic-mark-dark.png"
+  logo = "flower.png"
   mainSections = ["blog", "project", "talk"]
   navallcaps = true
   # show/hide social icons in site header & footer
@@ -48,7 +48,7 @@ enableEmoji = true
   # use a built-in color theme
   # one of: forest / grayscale / peach / plum /
   #         poppy / sky / violet / water 
-  theme = "sky"
+  theme = "poppy"
   
   # or, leave theme empty & make your own palette
   # see docs at https://hugo-apero.netlify.app/blog/color-themes/
@@ -61,12 +61,12 @@ enableEmoji = true
   # serif options: Fraunces / EB Garamond / Bitter
   # sans-serif options: Commissioner / Atkinson Hyperlegible / Metropolis
   # if you import your own fonts, name them here too
-  customtextFontFamily = "Commissioner"
+  customtextFontFamily = "Atkinson Hyperlegible"
   customheadingFontFamily = "Fraunces"
   # alternatively, leave empty and select basic font options: sans-serif or serif
   # for more http://tachyons.io/docs/typography/font-family/
-  textFontFamily = "sans-serif"
-  headingFontFamily = "sans-serif"
+  textFontFamily = "Times"
+  headingFontFamily = "Times"
 
   # Configuration of https://utteranc.es/ for comments
   [params.utterances]
@@ -88,31 +88,28 @@ enableEmoji = true
   [[params.social]]
       icon      = "github" # icon name without the 'fa-'
       icon_pack = "fab"
-      url       = "https://github.com/apreshill/apero"
+      url       = "https://github.com/thais01fernandes"
   [[params.social]]
-      icon      = "facebook-square" # icon name without the 'fa-'
-      icon_pack = "fab"
-      url       = "https://www.facebook.com/hashtag/ap%C3%A9ro"
-  [[params.social]]
-      icon      = "instagram" # icon name without the 'fa-'
-      icon_pack = "fab"
-      url       = "https://www.instagram.com/explore/tags/apero/"
-  [[params.social]]
-      icon      = "twitter" # icon name without the 'fa-'
-      icon_pack = "fab"
-      url       = "https://twitter.com/hashtag/apéro"
-  [[params.social]]
-      icon      = "impactstory" # icon name without the 'fa-'
+      icon      = "cv" # icon name without the 'fa-'
       icon_pack = "ai"
-      url       = "https://impactstory.org/u/0000-0002-8082-1890"
+      url       = "https://docs.google.com/document/d/1wDvCp5keluXlTCjKP4FDH0vo3iWxjFblTBi_-XhdPL4/edit"
   [[params.social]]
-      icon      = "orcid" # icon name without the 'fa-'
+      icon      = "linkedin" # icon name without the 'fa-'
+      icon_pack = "fab"
+      url       = "https://www.linkedin.com/in/thais-fernandes-06a116110/"
+  [[params.social]]
+      icon      = "google-scholar" # icon name without the 'fa-'
       icon_pack = "ai"
-      url       = "http://orcid.org/0000-0002-8082-1890"
+      url       = "https://scholar.google.com/citations?user=iK2Md6sAAAAJ"
   [[params.social]]
-      icon      = "rss" # icon name without the 'fa-'
-      icon_pack = "fas"
-      url       = "/blog/index.xml"
+      icon      = "lattes" # icon name without the 'fa-'
+      icon_pack = "ai"
+      url       = "http://buscatextual.cnpq.br/buscatextual/visualizacv.do"
+  [[params.social]]
+      icon      = "envelope" # icon name without the 'fa-'
+      icon_pack = "far"
+      url       = "mailto:thais.fernandes.pereira@usp.br"
+
 
 [taxonomies]
   category = "categories"
@@ -121,36 +118,28 @@ enableEmoji = true
 
 [menu]
   # Configure header 
-  [[menu.header]]
-    name = "About"
-    title = "About Blogophonic"
-    url = "/about/"
+   [[menu.header]]
+    name = "Página Inicial"
+    title = "Thais F. Pereira"
+    url = "/"
     weight = 1
+   [[menu.header]]
+    name = "Projetos"
+    title = "Projetos Portfólio"
+    url = "/project/"
+    weight = 2
   [[menu.header]]
     name = "Blog"
     title = "Blog"
     url = "/blog/"
-    weight = 2
-  [[menu.header]]
-    name = "Projects"
-    title = "Project Portfolio"
-    url = "/project/"
     weight = 3
-  [[menu.header]]
-    name = "Talks"
-    title = "Talks"
-    url = "/talk/"
-    weight = 4
-  [[menu.header]]
-    name = "A collection"
-    title = "A collection"
+ [[menu.header]]
+    name = "Pesquisa"
+    title = "Pesquisa"
     url = "/collection/"
     weight = 5
-  [[menu.header]]
-    name = "Elements"
-    title = "Element Page"
-    url = "/elements/"
-    weight = 6
+
+
     
   # Configure footer  
   [[menu.footer]]
@@ -168,6 +157,7 @@ enableEmoji = true
     title = "Contributors"
     url = "/contributors/"
     weight = 3
+  
 
 # see https://gohugo.io/about/hugo-and-gdpr/    
 [privacy]
@@ -191,3 +181,6 @@ enableEmoji = true
   [privacy.youtube]
     disable = false
     privacyEnhanced = true
+    
+
+    
