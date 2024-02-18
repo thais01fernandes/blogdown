@@ -1,58 +1,23 @@
 ---
+title: Fare Free Public Transport Cities
 author: Thais F. Pereira
-date: "2021-07-01"
+date: "2023-02-18"
 draft: false
-excerpt: Esse relatório contém algumas análises que estão sendo desenvolvidas no escopo do meu trabalho de mestrado no departamento de Ciência Política da USP
+excerpt: "Esse relatório contém análises desenvolvidas no escopo do meu trabalho de mestrado no departamento de Ciência Política da USP"
 layout: single
 links:
 - icon: door-open
   icon_pack: fas
   name: website
-  url: https://thais01fernandes.github.io/Analises-Mestrado/ffpt_brasil.html
+  url: https://thais01fernandes.github.io/mestrado_usp/analysis.html
 - icon: github
   icon_pack: fab
   name: code
-  url: https://github.com/thais01fernandes/Analises-Mestrado
-
-title: Fare Free Public Transport Cities
----
-
-![Formspree Logo](formspree-logo.png)
-
-## [Formspree](https://formspree.io) makes it easy to receive submissions from HTML forms on your static website.
+  url: https://github.com/thais01fernandes/mestrado_usp
 
 ---
 
-### Functional Form
+Para a minha dissertação de mestrado foram levantados dados de diversas origens, IBGE, IPEA, PNUD, Sincof, entre outros, e essas análises foram todas feitas usando a linguagem de programação R, os scripts podem ser acessados pelo link "code" que leva até o repositório do github, e o relatório pode ser acessado pelo link "website", que contém gráficos, tabelas, mapas e etc. Esse relatório ainda está sendo organzado, em breve estará finalizado. Mas ele mostra uma análise exploratória que tenta entender quais são as causas da adoção de políticas de tarifa zero no transporte público de cidades brasileiras, um fenômeno crescente em cidades de pequeno e médio porte, por meio de teorias da ciência política. 
 
-This theme has a **form-to-email** feature built in, thanks to the simple Formspree integration. All you need to activate the form is a valid recipient email address saved in the front matter of the form
-(`/content/forms/contact.md`). Of course, the example shown below (`your@email.here`) must not be used. Please use your actual email address.
+---
 
-```toml
-# please replace with a valid Formspree form id or email address
-formspree_form_id: your@email.here
-```
-
-Update that file and you're ready to begin receiving submissions. Just submit
-the active form for the first time, and complete the email address verification
-step with Formspree, and your contact form is live. The next time someone
-fills it out, the submission will land in your inbox.
-
-### Multiple Layouts
-
-The files included with the theme have a contact page ready for copy/paste, or
-you can type `hugo new forms/contact.md` and you're off to the races. There are two
-layouts for `forms` – `split-right`, and `split-left` – you guessed it, one puts
-the form on the right and the other on the left. You just fill out the front
-matter, and the rest is automatic.
-
-```toml
-# layout options: split-right or split-left
-layout: split-right
-```
-
-![Contact Form Split Right Layout Screenshot](built-in-contact-form-screenshot.png)
-
-Both layouts display the page title and description opposite the form, and you
-can also choose to show your social icon links if you have those configured in
-the `config.toml` file.
