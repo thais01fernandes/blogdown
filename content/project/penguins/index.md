@@ -1,12 +1,13 @@
 ---
-author: Thais F. Pereira
+title: "Análise da Participação Feminina nos Jogos Olímpicos"
+author: "Thais F. Pereira"
 date: "2019-07-02"
-draft: false
-excerpt: Essa é uma análise produzida como trabalho de conclusão do curso "Relatório Reprodutíveis em Rmarckdown", da Cursos-R
+excerpt: "Essa é uma análise produzida como trabalho de conclusão do curso \"Relatório
+  Reprodutíveis em Rmarckdown\", da Cursos-R"
 featured: true
-layout: single-sidebar
+layout: "single-sidebar"
 links:
-- icon: door-open
+- icon: "door-open"
   icon_pack: fas
   name: website
   url: https://thais01fernandes.github.io/dataset_olimpiadas/tcc_curso.html
@@ -14,8 +15,7 @@ links:
   icon_pack: fab
   name: code
   url: https://github.com/thais01fernandes/dataset_olimpiadas
-
-title: Análise da Participação Feminina nos Jogos Olímpicos
+draft: false
 ---
 
 Esta é uma análise a respeito da participação feminina nos Jogos Olímpicos, produzida a partir da base de dados a respeito dos jogos, disponibilizada pelo evento TidyTuesday. O dataset é composto por quinze variáveis a respeito de todos os competidores que participaram de jogos olímpicos entre 1896 e 2016. 
