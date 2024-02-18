@@ -2,7 +2,7 @@
 title: "Thais F. Pereira"
 action_link: /about
 action_type: text
-description: Olá! Eu sou uma Cientista Social com mestrado em Ciência Política pela Universidade de São Paulo (USP). Esse é o meu site portifólio, construído com alinguagem de programação R, pretendo usar esse espaço para publicar projetos pessoais de análise de dados e na seção de blog anotações e resumos de conteúdos estudados.
+description: Olá! Eu sou uma Cientista Social com mestrado em Ciência Política pela Universidade de São Paulo (USP). Esse é o meu site portifólio, construído com a linguagem de programação R, pretendo usar esse espaço para publicar projetos pessoais de análise de dados e na seção de blog anotações e resumos de conteúdos estudados.
 image_right: true
 images: 
 - fotoperfil.jpg
