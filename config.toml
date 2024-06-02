@@ -31,7 +31,7 @@ enableEmoji = true
   orgName = "RStudio"
   orgLocal = "Anywhere"
   description = "A modern, beautiful, and easily configurable blog theme for Hugo."
-  favicon = "/img/favicon.ico"
+  favicon = "flower.icon.ico"
   logo = "flower.icon.ico"
   mainSections = ["project", "Blog"]
   navallcaps = true
@@ -48,7 +48,7 @@ enableEmoji = true
   # use a built-in color theme
   # one of: forest / grayscale / peach / plum /
   #         poppy / sky / violet / water 
-  theme = "forest"
+  theme = "grayscale"
   
   # or, leave theme empty & make your own palette
   # see docs at https://hugo-apero.netlify.app/blog/color-themes/
@@ -61,8 +61,8 @@ enableEmoji = true
   # serif options: Fraunces / EB Garamond / Bitter
   # sans-serif options: Commissioner / Atkinson Hyperlegible / Metropolis
   # if you import your own fonts, name them here too
-  customtextFontFamily = "Atkinson Hyperlegible"
-  customheadingFontFamily = "Fraunces"
+  customtextFontFamily = "EB Garamond"
+  customheadingFontFamily = "Bitter"
   # alternatively, leave empty and select basic font options: sans-serif or serif
   # for more http://tachyons.io/docs/typography/font-family/
   textFontFamily = "Times"
@@ -123,19 +123,23 @@ enableEmoji = true
     title = "Thais F. Pereira"
     url = "/"
     weight = 1
+     [[menu.header]]
+    name = "Currículo"
+    title = "About"
+    url = "/about/"
+    weight = 2
    [[menu.header]]
     name = "Projetos"
     title = "Projetos Portfólio"
     url = "/project/"
-    weight = 2
-  [[menu.header]]
-    name = "Blog"
-    title = "Blog"
-    url = "/blog/"
     weight = 3
+#  [[menu.header]]
+#    name = "Blog"
+#    title = "Blog"
+#    url = "/blog/"
+#    weight = 4
 
 
-    
   # Configure footer  
 #  [[menu.footer]]
 #    name = "License"

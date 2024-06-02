@@ -1,0 +1,356 @@
+---
+title: "Análise da Participação Feminina nos Jogos Olímpicos"
+author: "Thais Pereira"
+date: "`r Sys.Date()`"
+excerpt: "Essa é uma análise produzida com gráficos animados, no formato de gif, além de mapa e gráfico de barras"
+output: html_document
+featured: true
+layout: "single"
+links:
+- icon: "door-open"
+  icon_pack: fas
+  name: website
+  url: https://thais01fernandes.github.io/dataset_olimpiadas/tcc_curso.html
+- icon: github
+  icon_pack: fab
+  name: code
+  url: https://github.com/thais01fernandes/dataset_olimpiadas
+draft: false
+---
+
+
+
+```{r setup, include=FALSE}
+(knitr::opts_chunk$set(echo=FALSE, error=FALSE, warning=FALSE, message=FALSE)) 
+```
+
+```{r Pacotes, include=FALSE}
+
+library("tidyverse")
+library("dplyr")
+library("kableExtra")
+library("knitr")
+library("tidylog")
+library("DT")
+library("kableExtra")
+library("knitr")
+library("tidylog")
+library("readxl")
+library("geobr")
+library("sf")
+library("wesanderson")
+library("ggplot2")
+library("stringr")
+library("stargazer")
+library ("abjData")
+library("extrafont")
+library("rnaturalearth")
+library("gganimate")
+library("gifski")
+library("av")
+library("lubridate")
+library("transformr")
+library("plotly")
+library("reactable")
+
+
+```
+
+
+```{r Download dos Dados, include=FALSE}
+
+file1 <- "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-07-27/olympics.csv"
+dados <- read_delim(file1, delim = ",", 
+                         locale = locale(encoding='latin1'))
+
+```
+
+
+**1. Comparativo da série histórica 1986-2016**
+
+```{r include=FALSE}
+# participação feminina nas olimpíadas: 
+
+pct_mulheres_2016 <- dados %>% 
+  filter(year == 2016) %>% 
+  group_by(sex) %>% 
+  tally() %>% 
+  mutate(pct = n/sum(n)*100) %>% 
+  filter(sex != "F") %>% 
+  select(pct) %>% 
+  round(digits = 1)
+
+```
+
+
+Originalmente os jogos olímpicos eram realizados na cidade de Olímpia na Grécia, e aconteceram entre o século VIII a.C e V d.C. Os jogos Omlípicos da era moderna foram idealizados pelo Barão Pierre de Coubertin (1863-1937) para acontecerem do mesmo modo que na antiguidade clássica, portanto excluindo as mulheres de participarem das competições. A primeira edição ocorreu oficiamente em 6 de abril de 1896 em Atenas na Grécia. A participação feminina só foi permitida na segunda Olimpíada, que aconteceu em 1900, nos próximos gráficos vamos falar mais detalhadamente dessa participação e seus número. Mas primeiramente, vamos observar a série histórica dos jogos e entender a evolução da participação feminina.
+
+No gráfico abaixo podemos observar a série histórica da proporção da participação feminina e masculina nas olimpíadas desde 1897 até 2016. É possível observar que as mulherem começam com 0% de participação nos jogos, chegando a marca `r pct_mulheres_2016`% nos jogos de 2016.
+
+
+```{r primeiro gif, eval=FALSE, fig.align='center', include=FALSE}
+
+
+# Criação do gráfico animado
+primeiro_gif <- dados %>%
+  group_by(year, sex) %>%
+  tally() %>%
+  mutate(pct = n / sum(n)) %>%
+  ggplot(aes(x = year, y = pct, color = sex)) +
+  geom_point(size = 5, alpha = 0.7) +
+  scale_color_manual(name = "Sexo", values = c("paleturquoise3", "#a178df"), labels = c("Feminino", "Masculino")) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    title = "Evolução da Participação Feminina nas Olimpíadas ao longo do século XX e XXI",
+    fill = "Sexo",
+    x = "",
+    y = ""
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(family = "serif", size = 14, face = "bold", hjust = 0.5, colour = "black"),
+    text = element_text(family = "serif"),
+    axis.text = element_text(size = 11),
+    legend.text = element_text(size = 12, face = "bold"),
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.position = "bottom"
+  ) +
+  scale_x_continuous(breaks = seq(1896, 2016, 10)) +
+  transition_reveal(year) +
+  shadow_trail()
+  
+# Renderização da animação
+animacao <- animate(
+  plot = primeiro_gif,
+  renderer = gifski_renderer(),
+  height = 400,
+  width = 600, 
+  duration = 10
+)
+
+# Salvando a animação em um arquivo GIF
+anim_save("primeiro_gif.gif", animation = animacao)
+
+
+
+```
+
+{{< figure src="primeiro_gif.gif" alt="Traditional right sidebar layout" caption="" >}}
+
+
+O gráfico abaixo por sua vez, nos mostra a quantidade nominal de mulheres e homens que participaram das Olímpiadas, também ao longo do século XX e XXI. Do mesmo modo que no outro gráfico, podemos observar o crescimento da participação feminina, mas além disso, também é possível verificar que a quantidade de mulheres em olimpíadas é, apesar de crescente ao longo do tempo, substancialmente menor que a masculina, mesmo nas últimas décadas.  
+
+
+```{r segundo gif, eval=FALSE, fig.align='center', include=FALSE}
+
+segundo_gif <- dados %>% 
+  group_by(year, sex) %>% 
+  tally() %>% 
+  ungroup() %>% 
+  ggplot(aes(x = year, y = n, color = sex)) +
+  geom_line(size = 1, alpha = 0.5) +
+  geom_point(size = 3.5, alpha = 0.5) +
+  scale_color_manual(name = "Sexo", values = c("paleturquoise3", "#a178df"), labels = c("Feminino", "Masculino")) +
+  labs(title = "Quantidade de Homens e Mulheres nas Olimpíadas ao longo do Tempo",
+        x = "",
+        y = "") +
+  theme_minimal() +
+  theme(plot.title = element_text(family = "serif", size = 14, face = "bold", hjust = 0.5, colour = "black"),
+        text = element_text(family = "serif"),
+        axis.text = element_text(size = 12),
+        legend.text = element_text(size = 12, face = "bold"),
+        legend.title = element_text(size = 12, face = "bold"),
+        legend.position = "bottom")+
+  
+  scale_x_continuous(breaks=seq(1896,2016,10)) +
+  scale_y_continuous(breaks=seq(0,10000,2000)) +
+  transition_reveal(year) 
+  
+animacao_2 <- animate(
+    render = gifski_renderer(),
+    plot = segundo_gif,
+    height = 400,
+    width = 600, 
+    duration = 10)
+
+# Salvando a animação em um arquivo GIF
+anim_save("segundo_gif.gif", animation = animacao_2)
+
+```
+
+{{< figure src="segundo_gif.gif" alt="Traditional right sidebar layout" caption="" >}}
+
+
+
+Aqui podemos observar a quantidade de medalhas de ouro, prata e bronze, conquistadas por mulheres e homens ao longos dos anos nas Olimpíadas. Interessante observar que os pontos da série histórica seguem o mesmo padrão dos gráficos anteriores, ou seja, conforme as mulheres foram ganhando espaço e participando mais dos jogos, a quantidade de medalhadas conquistadas também foi aumentando até alcançar, nas últimas olimpíadas, proporções bem próximas à masculina, e esse fenômeno se repeto para os três tipos existentes de medalhas. 
+
+
+```{r evolução medalhas, eval=FALSE, fig.align='center', include=FALSE}
+
+terceiro_gif <-  dados %>% 
+  filter(!is.na(medal)) %>% 
+  group_by(year, medal, sex) %>% 
+  tally() %>% 
+  mutate(pct = n/sum(n)) %>% 
+  ungroup() %>% 
+  ggplot() +
+  geom_point(aes(x = year, y = pct, color = sex), size = 2.5, alpha = 0.5 ) + 
+  facet_grid(cols=vars(medal))+
+  scale_color_manual(name = "Sexo", values = c("paleturquoise3", "#a178df"), labels = c("Feminino", "Masculino")) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(title = "Evolução da proporção de Medalhas Conquistadas por homens e muheres",
+        x = "",
+        y = "") +
+  theme_minimal() +
+  theme(strip.background = element_rect(colour = "white", fill = "#ebf1f2"),
+        plot.title = element_text(family = "serif", size = 14, face = "bold", hjust = 0.5, colour = "black"),
+        strip.text.x = element_text(colour = "black", hjust = 0.5, family = "serif", size = 12),
+        text = element_text(family = "serif"),
+        axis.text = element_text(size = 11),
+        legend.text = element_text(size = 12, face = "bold"),
+        axis.text.y= element_text(size = 11),
+        legend.title = element_text(size = 11, face = "bold"),
+        legend.position = "bottom")+
+   scale_x_continuous(breaks=seq(1896,2016,20)) +
+   transition_reveal(year) +
+   shadow_trail()
+
+
+animacao_3 <- animate(
+    render = gifski_renderer(),
+    plot = terceiro_gif,
+    height = 400,
+    width = 600, 
+    duration = 10)
+
+ 
+ # Salvando a animação em um arquivo GIF
+anim_save("terceiro_gif.gif", animation = animacao_3)
+
+```
+
+{{< figure src="terceiro_gif.gif" alt="Traditional right sidebar layout" caption="" >}}
+
+
+Abaixo temos um gráfico de calor sobre o mapa mundi nos mostrando a quantidade total de mulheres em olímpiadas em todos os países para o qual temos informações no dataset utilizado para essa análise. Estados Unidos e China aprecem como países com grande número de mulheres em Olmpíadas em relação aos outros países. 
+
+
+```{r mapa, eval=FALSE, fig.align='center', include=FALSE}
+
+# Organizando os dados: 
+
+# world %>% as.tibble()
+
+  dados_women <- dados %>% 
+  distinct(id, year, .keep_all = TRUE) %>% 
+  filter(sex == "F") %>% 
+  select(noc, year) %>% 
+  group_by(noc, year) %>% 
+  tally() %>% 
+  rename(qtd_mulheres = n)
+
+  dados_women$year <- as.numeric(dados_women$year)
+
+  world <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sf") %>% 
+  left_join(dados_women, by = c("iso_a3" = "noc")) %>% 
+  drop_na(qtd_mulheres)
+  borderless_world <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sf")
+
+
+# Mapa: 
+
+ mapa <- ggplot() +
+  
+  geom_sf(data = borderless_world, fill = "gray90", color = "white") + # camada dos NAs
+  
+  geom_sf(data = world, aes(fill = qtd_mulheres), color = "white") +
+      scale_fill_gradientn(colors = c("#faccff", "#845ec2"), 
+                       breaks = c(50, 100, 150, 200, 250),
+                       labels = c("50", "100", "150", "200", "250")) +
+  
+  labs(fill = "",
+       title = "Quantidade de Mulheres em Olimpíadas de 1896 a 2016",
+       subtitle = "Quanto mais escura a cor do país maior o número de mulheres e quanto mais claro menor") +
+  theme_void() +
+  theme(legend.direction = "horizontal",
+        legend.position = "bottom",
+        legend.key.width = unit(18, "mm"),
+        legend.key.height = unit(10, "mm"),
+        plot.subtitle = element_text(family = "serif", size = 14, color = "#404040",  hjust = 0.5),
+        plot.title = element_text(family = "serif", size = 16, face = "bold", hjust = 0.5, colour = "black"))
+  
+  ggsave("mapa.png", plot = mapa, width = 10, height = 8,units = "in", dpi = 300)
+  
+ 
+```
+
+
+{{< figure src="mapa.png" alt="Traditional right sidebar layout" caption="" >}}
+
+
+O gráfico abaixo é como se fosse um recorte do gráfico anterior, todavia nele estamos olhando para a proporção de homens e mulheres em olimpíadas (1986 - 2016), apenas nos países da América Latina, para que possamos compará-los entre si. Peru, Brasil e Colômbia são, respectivamente, os países com mais mulheres em olimpíadas, ao passo que Uruguai, Chile e Paraguai são os países com menos mulheres. 
+
+```{r plot america latina, fig.align = 'center', out.width = "60%"}
+
+  dados_paises <- dados %>% 
+  filter (noc %in% c("BRA", "ARG", "CHI", "URU", "GUY", "COL", "VEN", "PER","PAR", "ECU", "BOL")) %>% 
+  mutate(noc=case_when(noc=="URU" ~"Uruguai",
+                       noc=="CHI" ~"Chile",
+                       noc=="PAR" ~"Paraguai",
+                       noc=="ARG"~"Argentina",
+                       noc=="GUY" ~"Guiana",
+                       noc=="ECU" ~"Equador",
+                       noc=="BOL" ~"Bolivia",
+                       noc=="VEN" ~"Venezuela",
+                       noc=="COL" ~"Colombia",
+                       noc=="BRA" ~"Brasil",
+                       noc=="PER" ~"Peru",TRUE~ noc)) %>% 
+  group_by(noc, sex) %>% 
+  tally() %>% 
+  mutate(pct = n/sum(n))
+
+
+  dados_paises$noc <- factor(dados_paises$noc, levels= c("Uruguai",
+                                                       "Chile", 
+                                                       "Paraguai", 
+                                                       "Argentina",
+                                                       "Guiana", 
+                                                       "Equador",
+                                                       "Bolivia", 
+                                                       "Venezuela", 
+                                                       "Colombia", 
+                                                       "Brasil",
+                                                       "Peru"), ordered=TRUE)
+# gráfico: 
+ 
+grafico_barras <-  dados_paises %>% 
+  ggplot() + 
+  geom_col(aes(x = "", y = pct, fill = sex),width = 15, position="fill", alpha = 0.7)+ 
+  scale_fill_brewer() +
+  facet_grid(cols=vars(noc))+
+  scale_fill_manual(name = "Sexo", values = c("paleturquoise3", "#a178df"), labels = c("Feminino", "Masculino")) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(title = "Proporção de Mulheres da América Latina nas Olímpidas de 1896 a 2016",
+        x = "",
+        y = "") +
+  theme_minimal() +
+  theme(plot.title = element_text(family = "serif", size = 9, face = "bold", hjust = 0.5, colour = "black"),
+        text = element_text(family = "serif"),
+        axis.text = element_text(size = 8),
+        axis.text.y= element_text(size = 8),
+        legend.text = element_text(size = 8, face = "bold"),
+        legend.title = element_text(size = 8, face = "bold"),
+        legend.position = "bottom")
+
+  ggsave("grafico_barras.png", plot = grafico_barras, width = 6, height = 4,units = "in", dpi = 300)
+
+```
+
+
+{{< figure src="grafico_barras.png" alt="Traditional right sidebar layout" caption="" >}}
+
+
+**4. Considerações Finais**
+
+
+Nesta análise de dados foi possível observar por meios dos gráficos apesentados a desigualdade entre homens e mulheres na participação nas Olimpíadas ao longo do século XX e XXI assim como o seu avanço, com expressivo crescimento, da prticipação feminina ao longo do tempo. É importante lembrar que as mulheres foram proibidas de participar do primeiro evento por razões sexistas e hoje competem demonstrando habilidade e capacidade iguais aos competidores masculinos, como podemos observar no gráficos das medalhas: conforme aumento da participação feminina também é possível observar aumento proporcional na quantidade de medalhas por elas conquistadas. 
