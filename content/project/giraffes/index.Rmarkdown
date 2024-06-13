@@ -1,0 +1,180 @@
+---
+title: "Análise da Popularização dos Celulares"
+author: "Thais Pereira"
+date: "`r Sys.Date()`"
+excerpt: "Esse é um Innfográfico com dados da popularização dos celulares em diferentes regiões do mundo"
+output: html_document
+featured: true
+layout: "single"
+links:
+- icon: github
+  icon_pack: fab
+  name: code
+  url: https://github.com/thais01fernandes/maps/blob/main/infografrico.Rmd
+draft: false
+---
+
+Para essa análise utilizou-se os dados disponibilizados pela comunidade do [Tidytuesday](https://github.com/rfordatascience/tidytuesday), diversos datasets são disponibilizados e podem ser acessados através do pacote [tidytuesdayR](https://github.com/thebioengineer/tidytuesdayR). Utilizei a linguagem R para desenvolver os dois infográficos. 
+
+```{r setup, include=FALSE}
+(knitr::opts_chunk$set(echo=FALSE, error=FALSE, warning=FALSE, message=FALSE)) 
+```
+
+```{r include=FALSE}
+
+
+library(tidyverse)
+library(tidytuesdayR)
+library(extrafont)
+library(ggtext)
+library(MetBrewer)
+library(glue)
+library(marquee)
+
+ 
+# systemfonts::system_fonts()
+
+# Get data ----
+tt_data <- tidytuesdayR::tt_load(2020, 46)
+#readme(tt_data)
+
+
+```
+
+
+
+```{r thema, include=FALSE}
+
+
+
+subtitulo <- glue("Cada ponto representa um país. Quanto maior o seu tamanho, maior o PIB per capita. \n
+                  O gráfico exibe os países da <b style='color:#94e0b0;'>Europa</b> e da <b style='color:#fe857e;'>América</b>"
+
+)
+
+# Plot it ----
+theme_phone <- function() {
+  theme_minimal() %+replace%
+    theme(
+          plot.background = element_rect(fill = "#555152", colour = "#555152"),
+          panel.grid = element_line(color = "#555152"),
+          panel.background = element_rect(fill = "#555152", colour = "#555152"),
+          plot.title = element_text(hjust = 0, size = 25, family = "Candara"),
+          plot.subtitle = element_markdown(hjust = 0, size = 12, family = "Candara"),
+          text = element_text(colour = "#f0f0d8", family = "Candara"), 
+          axis.text = element_text(color = "#f0f0d8", size = 11),
+          axis.title = element_text(color = "#f0f0d8", size = 11),
+          plot.caption = element_markdown(hjust = 1, size = 10, lineheight = 1),
+          axis.ticks = element_blank(),
+          legend.text = element_text(family = "Candara", size = 12, hjust = 0.5),
+          legend.position = "bottom",
+          legend.title = element_blank())}
+
+
+theme_2 <- function() {
+  theme_minimal() %+replace%
+    theme(
+          plot.background = element_rect(fill = "#555152", colour = "#555152"),
+          panel.grid = element_line(color = "#555152"),
+          panel.background = element_rect(fill = "#555152", colour = "#555152"),
+          text = element_text(colour = "#bcd8bf", family = "Candara"),
+          plot.title = element_text(hjust = 0, size = 25, family = "Candara"),
+          axis.text = element_text(color = "#bcd8bf", size = 11),
+          plot.subtitle = element_markdown(hjust = 0, size = 14, lineheight = 1),
+          plot.caption = element_markdown(hjust = 1, size = 10, lineheight = 1),
+          axis.title = element_text(color = "#bcd8bf", size = 11),
+          axis.ticks = element_blank(),
+          legend.text = element_text(family = "Candara", size = 12, hjust = 0.5),
+          legend.position = "bottom",
+          legend.title = element_blank())}
+
+
+```
+
+
+
+```{r include=FALSE}
+
+col_vec <- c(
+  "Europe" = "#94e0b0",
+  "Americas" = "#fe857e",
+  "Asia" = "#fae894",
+  "Africa" = "#169d99",
+  "Oceania" = "#b88bad"
+)
+
+tt_data$mobile %>%
+  mutate(phones_per_person = mobile_subs / 100) %>%
+  ggplot() +
+  geom_smooth(aes(x = year, y = phones_per_person, 
+                  colour = continent)) +
+  geom_hline(yintercept = 1, lty = 3, colour = "white") +
+  labs(title = "  
+A popularização dos celulares 
+no mundo
+", 
+subtitle = "O boom dos telefones portáteis começou ainda nos anos 1990.  
+Hoje, 30 anos depois países da Africa e da Oceania ainda tem uma média de  
+menos de 1 celular por pessoa.")   +
+
+  labs(x = "Ano",
+       y = "Média de celulares por pessoa",
+       legent = "Continent",
+       caption = "Source: Our World In Data") +
+  guides(colour=guide_legend(override.aes=list(fill=NA))) +
+  theme_2() +
+    scale_colour_manual(
+    values = col_vec
+  ) 
+
+# Export plot ----
+ggsave(filename = "celulares.png", dpi = 400, width = 9, height = 6)
+
+```
+
+{{< figure src="celulares.png" alt="Traditional right sidebar layout" caption="" >}}
+
+
+```{r include=FALSE}
+
+
+col_vec <- c(
+  "Europe" = "#94e0b0",
+  "Americas" = "#fe857e"
+)
+
+celulares_pib <- tt_data$mobile %>%
+  mutate(phones_per_person = mobile_subs / 100) %>%
+  filter(continent == "Europe" | continent == "Americas") %>% 
+  filter(entity != "Canada") %>% 
+  ggplot() +
+  geom_point(aes(x = year, y = phones_per_person, 
+                 colour = continent,
+                 size = gdp_per_cap),
+             alpha = 0.6,
+             show.legend = F) +
+  geom_hline(yintercept = 1, lty = 3, colour = "white") +
+  labs(title = "  
+A Desigualdade da popularização dos 
+celulares no mundo
+", 
+  subtitle = subtitulo) +
+  scale_size(range = c(.5, 2)) +
+  labs(x = "Ano",
+       y = "Média de smartphone por pessoa",
+       legent = "Continent",
+       caption = "Source: Our World In Data") +
+    scale_colour_manual(
+    values = col_vec
+  ) +
+
+  guides(colour=guide_legend(override.aes=list(fill=NA))) +
+  theme_phone()
+
+# Export plot ----
+ggsave(filename = "celulares_pib.png", dpi = 400, width = 9, height = 6)
+
+```
+
+
+{{< figure src="celulares_pib.png" alt="Traditional right sidebar layout" caption="" >}}

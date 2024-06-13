@@ -1,7 +1,7 @@
 ---
 title: "Análise da Participação Feminina nos Jogos Olímpicos"
 author: "Thais Pereira"
-date: "2024-06-02"
+date: "2024-06-12"
 excerpt: "Essa é uma análise produzida com gráficos animados, no formato de gif, além de mapa e gráfico de barras"
 output: html_document
 featured: true

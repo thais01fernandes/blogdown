@@ -108,8 +108,8 @@ primeiro_gif <- dados %>%
   ) +
   theme_minimal() +
   theme(
-    plot.title = element_text(family = "serif", size = 14, face = "bold", hjust = 0.5, colour = "black"),
-    text = element_text(family = "serif"),
+    plot.title = element_text(family = "Candara", size = 14, face = "bold", hjust = 0.5, colour = "black"),
+    text = element_text(family = "Candara"),
     axis.text = element_text(size = 11),
     legend.text = element_text(size = 12, face = "bold"),
     legend.title = element_text(size = 12, face = "bold"),
@@ -155,8 +155,8 @@ segundo_gif <- dados %>%
         x = "",
         y = "") +
   theme_minimal() +
-  theme(plot.title = element_text(family = "serif", size = 14, face = "bold", hjust = 0.5, colour = "black"),
-        text = element_text(family = "serif"),
+  theme(plot.title = element_text(family = "Candara", size = 14, face = "bold", hjust = 0.5, colour = "black"),
+        text = element_text(family = "Candara"),
         axis.text = element_text(size = 12),
         legend.text = element_text(size = 12, face = "bold"),
         legend.title = element_text(size = 12, face = "bold"),
@@ -203,9 +203,9 @@ terceiro_gif <-  dados %>%
         y = "") +
   theme_minimal() +
   theme(strip.background = element_rect(colour = "white", fill = "#ebf1f2"),
-        plot.title = element_text(family = "serif", size = 14, face = "bold", hjust = 0.5, colour = "black"),
+        plot.title = element_text(family = "Candara", size = 14, face = "bold", hjust = 0.5, colour = "black"),
         strip.text.x = element_text(colour = "black", hjust = 0.5, family = "serif", size = 12),
-        text = element_text(family = "serif"),
+        text = element_text(family = "Candara"),
         axis.text = element_text(size = 11),
         legend.text = element_text(size = 12, face = "bold"),
         axis.text.y= element_text(size = 11),
@@ -270,16 +270,16 @@ Abaixo temos um gráfico de calor sobre o mapa mundi nos mostrando a quantidade 
   
   labs(fill = "",
        title = "Quantidade de Mulheres em Olimpíadas de 1896 a 2016",
-       subtitle = "Quanto mais escura a cor do país maior o número de mulheres e quanto mais claro menor") +
+       subtitle = "Quanto mais escura a cor do país maior o número de mulheres que pariticiparam de olimpíadas") +
   theme_void() +
   theme(legend.direction = "horizontal",
         legend.position = "bottom",
         legend.key.width = unit(18, "mm"),
         legend.key.height = unit(10, "mm"),
-        plot.subtitle = element_text(family = "serif", size = 14, color = "#404040",  hjust = 0.5),
-        plot.title = element_text(family = "serif", size = 16, face = "bold", hjust = 0.5, colour = "black"))
+        plot.subtitle = element_text(family = "Candara", size = 11, color = "#404040",  hjust = 0.5),
+        plot.title = element_text(family = "Candara", size = 18, hjust = 0.5, colour = "black"))
   
-  ggsave("mapa.png", plot = mapa, width = 10, height = 8,units = "in", dpi = 300)
+  ggsave("mapa.png", plot = mapa, width = 10, height = 8,units = "in", dpi = 400)
   
  
 ```
@@ -290,7 +290,7 @@ Abaixo temos um gráfico de calor sobre o mapa mundi nos mostrando a quantidade 
 
 O gráfico abaixo é como se fosse um recorte do gráfico anterior, todavia nele estamos olhando para a proporção de homens e mulheres em olimpíadas (1986 - 2016), apenas nos países da América Latina, para que possamos compará-los entre si. Peru, Brasil e Colômbia são, respectivamente, os países com mais mulheres em olimpíadas, ao passo que Uruguai, Chile e Paraguai são os países com menos mulheres. 
 
-```{r plot america latina, fig.align = 'center', out.width = "60%"}
+```{r plot america latina, fig.align = 'center'}
 
   dados_paises <- dados %>% 
   filter (noc %in% c("BRA", "ARG", "CHI", "URU", "GUY", "COL", "VEN", "PER","PAR", "ECU", "BOL")) %>% 
@@ -334,15 +334,15 @@ grafico_barras <-  dados_paises %>%
         x = "",
         y = "") +
   theme_minimal() +
-  theme(plot.title = element_text(family = "serif", size = 9, face = "bold", hjust = 0.5, colour = "black"),
-        text = element_text(family = "serif"),
-        axis.text = element_text(size = 8),
+  theme(plot.title = element_text(family = "Candara", size = 10, hjust = 0.5, colour = "black"),
+        text = element_text(family = "Candara"),
+        axis.text.x = element_text(size = 6),
         axis.text.y= element_text(size = 8),
         legend.text = element_text(size = 8, face = "bold"),
         legend.title = element_text(size = 8, face = "bold"),
         legend.position = "bottom")
 
-  ggsave("grafico_barras.png", plot = grafico_barras, width = 6, height = 4,units = "in", dpi = 300)
+  ggsave("grafico_barras.png", plot = grafico_barras, width = 7, height = 4,units = "in", dpi = 400)
 
 ```
 

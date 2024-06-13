@@ -9,15 +9,15 @@ links:
 - icon: door-open
   icon_pack: fas
   name: website
-  url: https://thais01fernandes.github.io/mestrado_usp/analysis.html
+  url: https://thais01fernandes.github.io/ffpt_cities/social_moviments_ffpt.html
 - icon: github
   icon_pack: fab
   name: code
-  url: https://github.com/thais01fernandes/mestrado_usp
+  url: https://github.com/thais01fernandes/ffpt_cities
 
 ---
 
-Para a minha dissertação de mestrado foram levantados dados de diversas origens, IBGE, IPEA, PNUD, Sincof, entre outros, e essas análises foram todas feitas usando a linguagem de programação R, os scripts podem ser acessados pelo link "code" que leva até o repositório do github, e o relatório pode ser acessado pelo link "website", que contém gráficos, tabelas, mapas e etc. Esse relatório ainda está sendo organzado, em breve estará finalizado. Mas ele mostra uma análise exploratória que tenta entender quais são as causas da adoção de políticas de tarifa zero no transporte público de cidades brasileiras, um fenômeno crescente em cidades de pequeno e médio porte, por meio de teorias da ciência política. 
+Essa é uma análise produzida para o meu mestrado em Ciência Política na USP. Foram pesquisados os movimentos sociais que surgiram em meados de 2013, na época das Jornadas de Junho. Em levantamento próprio, fiz uma lista com todos os movimentos que tinha no seu nome Passe Livre ou Tarifa Zero. Com isso foi possível produzir um mapa interativo contendo a localização desses movimentos e as cidades com tarifa zero, para verificar proximidade geográfica. 
 
 ---
 
