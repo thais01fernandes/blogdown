@@ -31,13 +31,13 @@ intro:
   **Mapas, Geoprocessamento** | R, Qgis
   
   
-  **Tratamento de dados e Análises Estatísticas** | R, excel 
+  **Tratamento de dados e Análises Estatísticas** | R, Python, SQL, Excel 
   
   
-  **Automatização, relatórios reprodutíveis**  | R, Rmarckdown, github, github pages, css (layout, customização)
+  **Automatização, relatórios reprodutíveis**  | R, Rmarckdown, github, github pages, github actions, css (layout, customização)
   
   
-  **Banco de Dados**  | Postgre SQL
+  **Banco de Dados**  | Postgre SQL, Big Query
   
    ____________________
 
@@ -47,9 +47,10 @@ intro:
   3. **Experiências de Trabalho**
   
   
+  07/2024 - até o momento **Analista de Dados** - ADE SAMPA - Agência São Paulo de Desenvolvimento
 
   
-  04/2024 - até o momento **Assessora Técnica e Analista de Dados** - Secretaria Estadual de Desenvolvimento          Econômico de SP
+  04/2024 - 07/2024 **Assessora Técnica e Analista de Dados** - Secretaria Estadual de Desenvolvimento Econômico de SP
   
 
   11/2023 - 04/2024  **Analista de Dados Pleno** - Grupo Santa Joana
@@ -110,6 +111,9 @@ intro:
   
   
   5. **Artigos Acadêmicos Publicados**
+  
+  
+  RR Horochovski, WP Mancuso, TF Pereira. (2024). A produção acadêmica sobre o Caso Lava Jato. Revista de Sociologia e Política, V.32, pp. 21
   
   
   Fernandes Pereira, T. (2023). As capacidades estatais das cidades brasileiras com Tarifa Zero no Transporte         Público. XIII Seminário Discente da Pós Graduação em Ciência Política da USP, São Paulo. 
