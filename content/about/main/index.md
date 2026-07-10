@@ -10,34 +10,33 @@ intro:
 
   1. **Formação**
   
- 
-
   
-  **Universidade de São Paulo (USP)** | Mestrado em Ciência Política. 
+  **Senac - SP** | Tecnólogo em Banco de Dados | Em andamento
   
   
-  **Universidade de São Paulo (USP)** | Bacharelado em Ciências Sociais.
+  **Universidade de São Paulo (USP)** | MSc. em Ciência Política | Concluído
+  
+  
+  **Universidade de São Paulo (USP)** | B.A. em Ciências Sociais | Concluído
   
    ____________________
   
   
   2. **Habilidades Técnicas**
   
- 
+
   
-  **Dashoboards** | Tableau, Power Bi, Locker Studio, Shiny
-  
-  
-  **Mapas, Geoprocessamento** | R, Qgis
+  **BI e visualização:** Power BI, Tableau, Looker Studio, Metabase, Ggplot, Shiny
   
   
-  **Tratamento de dados e Análises Estatísticas** | R, Python, SQL, Excel 
+  **Linguagens e bancos:**  SQL, Python, R, PostgreSQL, SQL Server, BigQuery
   
   
-  **Automatização, relatórios reprodutíveis**  | R, Rmarckdown, github, github pages, github actions, css (layout, customização)
+  **Pipelines e automação:**  Apache Airflow, ETL/ELT, APIs, Git/GitHub Actions
   
   
-  **Banco de Dados**  | Postgre SQL, Big Query
+  **Relatórios reprodutíveis:**   R, Rmarckdown, Quarto, github pages, css (layout, customização)
+  
   
    ____________________
 
@@ -50,14 +49,12 @@ intro:
   07/2024 - até o momento **Analista de Dados** - ADE SAMPA - Agência São Paulo de Desenvolvimento
 
   
-  04/2024 - 07/2024 **Assessora Técnica e Analista de Dados** - Secretaria Estadual de Desenvolvimento Econômico de SP
-  
 
-  11/2023 - 04/2024  **Analista de Dados Pleno** - Grupo Santa Joana
+  10/2023 - 04/2024  **Analista de Dados Pleno** - Grupo Santa Joana
   
   
 
-  05/2022 - 11/2023  **Analista de Informações Gerenciais Jr.** - Hospital Alemão Oswaldo Cruz
+  05/2022 - 10/2023  **Analista de Informações Gerenciais** - Hospital Alemão Oswaldo Cruz
   
   
 
@@ -65,7 +62,7 @@ intro:
   
   
 
-  11/2020 - 01/2021  **Analista de Dados** - Humanizadas
+  11/2020 - 01/2021  **Analista de Dados Jr.** - Humanizadas
   
   
 
@@ -77,7 +74,7 @@ intro:
   
   
 
-  07/2018 - 01/2019  **Estagiária de Análise e Monitoramento de Políticas Sociais** - Secretaria Municipal de         Assistência e Desenvolvimento Social de SP
+  10/2016 - 07/2018  **Estagiária de Análise e Monitoramento de Dados** - Secretaria Municipal de Assistência e Desenvolvimento Social de SP
   
   ________________________________
 
@@ -108,32 +105,6 @@ intro:
   **Tema** - "As capacidades estatais das cidades brasileiras com Tarifa Zero no Transporte Público". 
   
   ________________________________
-  
-  
-  5. **Artigos Acadêmicos Publicados**
-  
-  
-  RR Horochovski, WP Mancuso, TF Pereira. (2024). A produção acadêmica sobre o Caso Lava Jato. Revista de Sociologia e Política, V.32, pp. 21
-  
-  
-  Fernandes Pereira, T. (2023). As capacidades estatais das cidades brasileiras com Tarifa Zero no Transporte         Público. XIII Seminário Discente da Pós Graduação em Ciência Política da USP, São Paulo. 
-  
-  
-  
-  Fernandes Pereira, T., Vermander, M., & Kębłowski, W. (2023). Motivations and characteristics of FFPT policies in   selected Brazilian municipalities. Journal of Sustainable Urban Mobility, 3(1), 122–138.
-  
-  
-  
-  Fernandes Pereira, T. (2022). A Política de Insenção de Tarifa no Transporte Público de Governos Locais. XII       Seminário Discente da Pós Graduação em Ciência Política da USP, São Paulo. 
-  
-  
-  
-  PEREIRA, Thais Fernandes.(2019) Os Discursos Biológicos, Estudo de Caso com Matérias da Revista                
-  Superinteressante. Revista Florestan, ANO 7 - N. 8 - pp. 225-247 
-
-
-  
-  PEREIRA, Thais Fernandes.  (2018) Estudos Multiespécies, uma breve análise da teoria e de suas aplicações. Revista   Ensaios, Rio de Janeiro, v. 13.
   
   
 

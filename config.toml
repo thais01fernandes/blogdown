@@ -92,7 +92,7 @@ enableEmoji = true
   [[params.social]]
       icon      = "cv" # icon name without the 'fa-'
       icon_pack = "ai"
-      url       = "https://docs.google.com/document/d/1wDvCp5keluXlTCjKP4FDH0vo3iWxjFblTBi_-XhdPL4/edit"
+      url       = "https://docs.google.com/document/d/1346iehuuwBSWoscjQQtO_rmo561hHFZGzp06ikDD0fI/edit?tab=t.0"
   [[params.social]]
       icon      = "linkedin" # icon name without the 'fa-'
       icon_pack = "fab"
@@ -101,10 +101,10 @@ enableEmoji = true
       icon      = "google-scholar" # icon name without the 'fa-'
       icon_pack = "ai"
       url       = "https://scholar.google.com/citations?user=iK2Md6sAAAAJ"
-  [[params.social]]
-      icon      = "lattes" # icon name without the 'fa-'
-      icon_pack = "ai"
-      url       = "http://buscatextual.cnpq.br/buscatextual/visualizacv.do"
+#  [[params.social]]
+#      icon      = "lattes" # icon name without the 'fa-'
+#      icon_pack = "ai"
+#      url       = "http://buscatextual.cnpq.br/buscatextual/visualizacv.do"
   [[params.social]]
       icon      = "envelope" # icon name without the 'fa-'
       icon_pack = "far"

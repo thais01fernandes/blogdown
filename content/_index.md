@@ -8,7 +8,7 @@ images:
 - fotoperfil.jpg
 show_action_link: true
 show_social_links: true
-subtitle: Data Analyst & Researcher
+subtitle: Data Analyst
 text_align_left: true
 action_label: Read More &rarr;
 type: home
